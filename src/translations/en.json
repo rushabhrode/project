@@ -1,0 +1,60 @@
+{
+  "app.title": "Library Management System",
+  "app.tagline": "Discover, Borrow, Learn",
+  
+  "nav.home": "Home",
+  "nav.books": "Books",
+  "nav.dashboard": "Dashboard",
+  "nav.profile": "Profile",
+  "nav.login": "Login",
+  "nav.logout": "Logout",
+  "nav.admin": "Admin",
+  
+  "language.en": "English",
+  "language.hi": "Hindi",
+  "language.mr": "Marathi",
+  
+  "search.placeholder": "Search for books...",
+  "search.button": "Search",
+  "search.filter": "Filter",
+  "search.genre": "Genre",
+  "search.language": "Language",
+  "search.author": "Author",
+  "search.year": "Year",
+  
+  "book.available": "Available",
+  "book.unavailable": "Unavailable",
+  "book.borrow": "Borrow",
+  "book.return": "Return",
+  "book.details": "Details",
+  "book.author": "Author",
+  "book.genre": "Genre",
+  "book.language": "Language",
+  "book.year": "Published",
+  "book.isbn": "ISBN",
+  
+  "admin.addBook": "Add Book",
+  "admin.editBook": "Edit Book",
+  "admin.deleteBook": "Delete Book",
+  "admin.users": "Manage Users",
+  "admin.borrowings": "Borrowing Records",
+  "admin.dashboard": "Admin Dashboard",
+  
+  "user.borrowings": "My Borrowings",
+  "user.profile": "My Profile",
+  "user.dashboard": "User Dashboard",
+  
+  "login.email": "Email",
+  "login.password": "Password",
+  "login.submit": "Login",
+  "login.register": "Register",
+  
+  "error.required": "This field is required",
+  "error.invalidEmail": "Invalid email address",
+  "error.general": "Something went wrong",
+  
+  "footer.rights": "All rights reserved",
+  "footer.contact": "Contact Us",
+  "footer.about": "About Us",
+  "footer.terms": "Terms & Conditions"
+}

@@ -1,0 +1,60 @@
+{
+  "app.title": "पुस्तकालय प्रबंधन प्रणाली",
+  "app.tagline": "खोजें, उधार लें, सीखें",
+  
+  "nav.home": "होम",
+  "nav.books": "पुस्तकें",
+  "nav.dashboard": "डैशबोर्ड",
+  "nav.profile": "प्रोफाइल",
+  "nav.login": "लॉगिन",
+  "nav.logout": "लॉगआउट",
+  "nav.admin": "एडमिन",
+  
+  "language.en": "अंग्रेज़ी",
+  "language.hi": "हिंदी",
+  "language.mr": "मराठी",
+  
+  "search.placeholder": "पुस्तकें खोजें...",
+  "search.button": "खोजें",
+  "search.filter": "फ़िल्टर",
+  "search.genre": "विधा",
+  "search.language": "भाषा",
+  "search.author": "लेखक",
+  "search.year": "वर्ष",
+  
+  "book.available": "उपलब्ध",
+  "book.unavailable": "अनुपलब्ध",
+  "book.borrow": "उधार लें",
+  "book.return": "वापस करें",
+  "book.details": "विवरण",
+  "book.author": "लेखक",
+  "book.genre": "विधा",
+  "book.language": "भाषा",
+  "book.year": "प्रकाशित",
+  "book.isbn": "आईएसबीएन",
+  
+  "admin.addBook": "पुस्तक जोड़ें",
+  "admin.editBook": "पुस्तक संपादित करें",
+  "admin.deleteBook": "पुस्तक हटाएं",
+  "admin.users": "उपयोगकर्ता प्रबंधन",
+  "admin.borrowings": "उधार रिकॉर्ड",
+  "admin.dashboard": "एडमिन डैशबोर्ड",
+  
+  "user.borrowings": "मेरे उधार",
+  "user.profile": "मेरी प्रोफाइल",
+  "user.dashboard": "उपयोगकर्ता डैशबोर्ड",
+  
+  "login.email": "ईमेल",
+  "login.password": "पासवर्ड",
+  "login.submit": "लॉगिन",
+  "login.register": "रजिस्टर",
+  
+  "error.required": "यह फ़ील्ड आवश्यक है",
+  "error.invalidEmail": "अमान्य ईमेल पता",
+  "error.general": "कुछ गलत हो गया",
+  
+  "footer.rights": "सर्वाधिकार सुरक्षित",
+  "footer.contact": "संपर्क करें",
+  "footer.about": "हमारे बारे में",
+  "footer.terms": "नियम और शर्तें"
+}

@@ -1,0 +1,60 @@
+{
+  "app.title": "ग्रंथालय व्यवस्थापन प्रणाली",
+  "app.tagline": "शोधा, उधार घ्या, शिका",
+  
+  "nav.home": "मुख्यपृष्ठ",
+  "nav.books": "पुस्तके",
+  "nav.dashboard": "डॅशबोर्ड",
+  "nav.profile": "प्रोफाइल",
+  "nav.login": "लॉगिन",
+  "nav.logout": "लॉगआउट",
+  "nav.admin": "प्रशासक",
+  
+  "language.en": "इंग्रजी",
+  "language.hi": "हिंदी",
+  "language.mr": "मराठी",
+  
+  "search.placeholder": "पुस्तके शोधा...",
+  "search.button": "शोधा",
+  "search.filter": "फिल्टर",
+  "search.genre": "प्रकार",
+  "search.language": "भाषा",
+  "search.author": "लेखक",
+  "search.year": "वर्ष",
+  
+  "book.available": "उपलब्ध",
+  "book.unavailable": "अनुपलब्ध",
+  "book.borrow": "उधार घ्या",
+  "book.return": "परत करा",
+  "book.details": "तपशील",
+  "book.author": "लेखक",
+  "book.genre": "प्रकार",
+  "book.language": "भाषा",
+  "book.year": "प्रकाशित",
+  "book.isbn": "आयएसबीएन",
+  
+  "admin.addBook": "पुस्तक जोडा",
+  "admin.editBook": "पुस्तक संपादित करा",
+  "admin.deleteBook": "पुस्तक हटवा",
+  "admin.users": "वापरकर्ते व्यवस्थापन",
+  "admin.borrowings": "उधार नोंदी",
+  "admin.dashboard": "प्रशासक डॅशबोर्ड",
+  
+  "user.borrowings": "माझे उधार",
+  "user.profile": "माझे प्रोफाइल",
+  "user.dashboard": "वापरकर्ता डॅशबोर्ड",
+  
+  "login.email": "ईमेल",
+  "login.password": "पासवर्ड",
+  "login.submit": "लॉगिन",
+  "login.register": "नोंदणी करा",
+  
+  "error.required": "हे क्षेत्र आवश्यक आहे",
+  "error.invalidEmail": "अवैध ईमेल पत्ता",
+  "error.general": "काहीतरी चूक झाली",
+  
+  "footer.rights": "सर्व हक्क राखीव",
+  "footer.contact": "संपर्क करा",
+  "footer.about": "आमच्याबद्दल",
+  "footer.terms": "नियम आणि अटी"
+}
