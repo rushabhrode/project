@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import Layout from '../../components/common/Layout';
-import { Book, Clock, BookmarkCheck, User, AlertCircle, Calendar } from 'lucide-react';
+import { Book, Clock, BookmarkCheck, User, AlertCircle, Calendar, BookOpen } from 'lucide-react';
 import { mockBorrowings } from '../../data/mockData';
 import { BorrowRecord } from '../../types';
 import { getBookMap } from '../../data/mockData';

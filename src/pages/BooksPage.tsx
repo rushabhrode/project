@@ -4,68 +4,90 @@ import Layout from '../components/common/Layout';
 import Search from '../components/common/Search';
 import BookCard from '../components/common/BookCard';
 import Pagination from '../components/common/Pagination';
-import { mockBooks } from '../data/mockData';
 import { Book } from '../types';
 import { BookOpenCheck } from 'lucide-react';
 
 const BooksPage: React.FC = () => {
   const { t } = useLanguage();
+
+  // allBooks holds the full list fetched from backend
+  const [allBooks, setAllBooks] = useState<Book[]>([]);
+  // filteredBooks is the current, post-search/filter list
+  const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<Record<string, string>>({});
-  const [filteredBooks, setFilteredBooks] = useState<Book[]>(mockBooks);
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 8;
-  
-  // Apply search and filters
+
+  // 1️⃣ Fetch from Spring API once on mount
   useEffect(() => {
-    let results = [...mockBooks];
-    
-    // Apply text search
+    fetch('/api/books')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch books');
+        return res.json();
+      })
+      .then((data: Book[]) => {
+        setAllBooks(data);
+        setFilteredBooks(data);
+      })
+      .catch(err => {
+        console.error(err);
+        setAllBooks([]);
+        setFilteredBooks([]);
+      });
+  }, []);
+
+  // 2️⃣ Re-run search + filters whenever searchQuery or filters change
+  useEffect(() => {
+    let results = [...allBooks];
+
+    // Text search
     if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      results = results.filter(book => 
-        book.title.toLowerCase().includes(query) || 
-        book.author.toLowerCase().includes(query) ||
-        book.description.toLowerCase().includes(query)
+      const q = searchQuery.toLowerCase();
+      results = results.filter(b =>
+        b.title.toLowerCase().includes(q) ||
+        b.author.toLowerCase().includes(q) ||
+        b.description.toLowerCase().includes(q)
       );
     }
-    
-    // Apply filters
-    if (filters.genre && filters.genre !== '') {
-      results = results.filter(book => book.genre === filters.genre);
+
+    // Genre filter
+    if (filters.genre) {
+      results = results.filter(b => b.genre === filters.genre);
     }
-    
-    if (filters.language && filters.language !== '') {
-      results = results.filter(book => book.language === filters.language);
+    // Language filter
+    if (filters.language) {
+      results = results.filter(b => b.language === filters.language);
     }
-    
-    if (filters.author && filters.author !== '') {
-      results = results.filter(book => 
-        book.author.toLowerCase().includes(filters.author.toLowerCase())
-      );
+    // Author filter (partial match)
+    if (filters.author) {
+      const a = filters.author.toLowerCase();
+      results = results.filter(b => b.author.toLowerCase().includes(a));
     }
-    
-    if (filters.year && filters.year !== '') {
-      results = results.filter(book => book.publishedYear === parseInt(filters.year));
+    // Year filter
+    if (filters.year) {
+      const year = parseInt(filters.year, 10);
+      results = results.filter(b => b.publishedYear === year);
     }
-    
+
     setFilteredBooks(results);
-    setCurrentPage(1); // Reset to first page when filters change
-  }, [searchQuery, filters]);
-  
-  // Handle search and filter submission
-  const handleSearch = (query: string, newFilters: Record<string, string>) => {
-    setSearchQuery(query);
-    setFilters(newFilters);
-  };
-  
-  // Calculate pagination
+    setCurrentPage(1); // reset to first page on any filter/search change
+  }, [searchQuery, filters, allBooks]);
+
+  // 3️⃣ Pagination math
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
   const currentBooks = filteredBooks.slice(
     (currentPage - 1) * booksPerPage,
     currentPage * booksPerPage
   );
-  
+
+  // Called by <Search /> when user submits new query/filters
+  const handleSearch = (query: string, newFilters: Record<string, string>) => {
+    setSearchQuery(query);
+    setFilters(newFilters);
+  };
+
   return (
     <Layout>
       <div className="max-w-6xl mx-auto">
@@ -75,13 +97,11 @@ const BooksPage: React.FC = () => {
             <span>{t('nav.books')}</span>
           </h1>
         </div>
-        
-        {/* Search Component */}
+
         <div className="mb-8">
           <Search onSearch={handleSearch} />
         </div>
-        
-        {/* Results */}
+
         {currentBooks.length === 0 ? (
           <div className="text-center py-16">
             <div className="mb-4 text-gray-400">
@@ -101,12 +121,10 @@ const BooksPage: React.FC = () => {
                 <BookCard key={book.id} book={book} />
               ))}
             </div>
-            
-            {/* Pagination */}
-            <Pagination 
-              currentPage={currentPage} 
-              totalPages={totalPages} 
-              onPageChange={setCurrentPage} 
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
             />
           </>
         )}
